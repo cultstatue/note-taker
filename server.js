@@ -38,10 +38,6 @@ function findById(id, notesArray) {
 
 function deleteNote(note, notesArray) {
 
-    // const index = notesArray.findIndex(noteObject => {
-    //     return noteObject.id = note.id
-    // })
-
     const index = notesArray.indexOf(note);
 
     notesArray.splice(index, 1);
@@ -58,7 +54,7 @@ app.delete('/api/notes/:id', (req, res) =>{
 
     deleteNote(note, notes);
 
-    console.log(note)
+    res.sendFile(path.join(__dirname, './public/notes.html'));
 
 })
 app.post('/api/notes', (req, res) => {
